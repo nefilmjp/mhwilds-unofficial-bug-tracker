@@ -1,0 +1,231 @@
+name: 'バグ報告'
+# title:
+description: バグ報告
+body:
+  # ゲームバージョン*
+  - type: input
+    id: version
+    attributes:
+      label: ゲームバージョン
+      placeholder: 1.000.00.00
+      description: 症状を確認したバージョン
+    validations:
+      required: true
+
+  # プラットフォーム*
+  - type: dropdown
+    id: platform
+    attributes:
+      label: プラットフォーム
+      description: 症状を確認したプラットフォーム（複数選択可）
+      options:
+        - 'Steam'
+        - 'PlayStation 5'
+        - 'Xbox Series X'
+        - 'Xbox Series S'
+      multiple: true
+    validations:
+      required: true
+
+  # 分類*
+  - type: dropdown
+    id: type
+    attributes:
+      label: 分類
+      options:
+        - '明確なバグ'
+        - 'バグの可能性が高い'
+        - 'バグとも仕様とも解釈できる'
+        - 'バグか仕様かに関わらず品質に問題がある'
+        - '要検討'
+    validations:
+      required: true
+
+  # 再現性・再現難易度*
+  - type: dropdown
+    id: repro
+    attributes:
+      label: 再現性・再現難易度
+      options:
+        - '再現性あり（常時発生しているか容易に再現可能）'
+        - '再現性あり（多少の手間で再現できる）'
+        - '再現性あり（再現は可能だが困難を伴う）'
+        - '再現性なし（検証したが再現できなかった）'
+        - '再現性不明（要検証）'
+    validations:
+      required: true
+
+  # カテゴリー*
+  - type: dropdown
+    id: category
+    attributes:
+      label: カテゴリー
+      description: 複数選択可
+      options:
+        - 'UI'
+        - '設定'
+        - '操作'
+        - 'グラフィック'
+        - '地形'
+        - 'サウンド'
+        - '装備'
+        - 'スキル'
+        - 'アイテム'
+        - 'ハンター'
+        - 'オトモ'
+        - 'サポハン'
+        - 'セクレト'
+        - 'NPC'
+        - 'クエスト'
+        - 'ロビー'
+        - 'ネットワーク'
+        - '大型モンスター'
+        - '小型モンスター'
+        - '環境生物'
+        - '採集'
+        - '釣り'
+        - '簡易キャンプ'
+        - 'タルコロ'
+        - 'キャラクタークリエイト・身だしなみ'
+        - 'その他'
+      multiple: true
+    validations:
+      required: true
+
+  # マップ
+  - type: dropdown
+    id: map
+    attributes:
+      label: マップ
+      description: 特定のマップに関連する場合は選択してください（複数選択可）
+      options:
+        - '隔ての砂漠'
+        - '緋の森'
+        - '油涌き谷'
+        - '氷霧の断崖'
+        - '竜都の跡形'
+        - '竜谷の跡地'
+        - '龍灯の社'
+        - 'スージャ'
+        - '大集会所'
+        - 'トレーニングエリア'
+      multiple: true
+    validations:
+      required: false
+
+  # 大型モンスター
+  - type: dropdown
+    id: monster
+    attributes:
+      label: 大型モンスター
+      description: 特定の大型モンスターに関連する場合は選択してください（複数選択可）
+      options:
+        - 'アジャラカン'
+        - 'アルシュベルド'
+        - '護竜アルシュベルド'
+        - '護竜アンジャナフ亜種'
+        - 'イャンクック'
+        - 'ウズ・トゥナ'
+        - '護竜オドガロン亜種'
+        - 'グラビモス'
+        - 'ケマトリス'
+        - 'ゲリョス'
+        - 'ゴア・マガラ'
+        - 'シーウー'
+        - 'ジン・ダハド'
+        - 'ゾ・シア'
+        - 'タマミツネ'
+        - 'チャタカブラ'
+        - 'ドシャグマ'
+        - '護竜ドシャグマ'
+        - 'ドドブランゴ'
+        - 'ヌ・エグドラ'
+        - 'ネルスキュラ'
+        - 'ババコンガ'
+        - 'バーラハーラ'
+        - 'ヒラバミ'
+        - 'ププロポル'
+        - 'ラバラ・バリナ'
+        - 'リオレイア'
+        - 'リオレウス'
+        - '護竜リオレウス'
+        - 'レ・ダウ'
+      multiple: true
+    validations:
+      required: false
+
+  # 装備種別
+  - type: dropdown
+    id: equipment
+    attributes:
+      label: 装備種別
+      description: 装備に関連する場合は選択してください（複数選択可）
+      options:
+        - '武器'
+        - '防具'
+        - '装衣'
+        - '装飾品'
+        - '護石'
+        - 'スリンガー'
+    validations:
+      required: false
+
+  # 武器種
+  - type: dropdown
+    id: weapon
+    attributes:
+      label: 武器種
+      description: 特定の武器種に関連する場合は選択してください（複数選択可）
+      options:
+        - 'ガンランス'
+        - 'スラッシュアックス'
+        - 'チャージアックス'
+        - 'ハンマー'
+        - 'ヘビィボウガン'
+        - 'ライトボウガン'
+        - 'ランス'
+        - '双剣'
+        - '大剣'
+        - '太刀'
+        - '弓'
+        - '操虫棍'
+        - '片手剣'
+        - '狩猟笛'
+      multiple: true
+    validations:
+      required: false
+
+  # 症状
+  - type: textarea
+    id: description
+    attributes:
+      label: 症状
+      description: 症状の説明、関連リソース等
+    validations:
+      required: true
+
+  # 再現方法
+  - type: textarea
+    id: deproduction
+    attributes:
+      label: 再現方法
+      description: 検証中や再現不能の場合は試した内容や推測される原因などを記入してください
+    validations:
+      required: true
+
+  # 期待される動作・仕様
+  - type: textarea
+    id: expected
+    attributes:
+      label: 期待される動作・仕様
+    validations:
+      required: true
+
+  # チェックリスト*
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: チェックリスト
+      options:
+        - label: '重複するissueがないことを確認しました'
+          required: true

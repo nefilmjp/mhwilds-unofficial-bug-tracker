@@ -1,0 +1,234 @@
+policy:
+  - template: [bug-report.yml]
+    section:
+      # プラットフォーム
+      - id: [platform]
+        label:
+          - name: 'platform:Steam'
+            keys: ['Steam']
+          - name: 'platform:PS5'
+            keys: ['PlayStation 5']
+          - name: 'platform:XSX'
+            keys: ['Xbox Series X']
+          - name: 'platform:XSS'
+            keys: ['Xbox Series S']
+
+      # 問題の分類
+      - id: [type]
+        label:
+          - name: 'bug:obvious'
+            keys: ['明確なバグ']
+          - name: 'bug:likely'
+            keys: ['バグの可能性が高い']
+          - name: 'bug:unclear'
+            keys: ['バグとも仕様とも解釈できる']
+          - name: 'bug:quality'
+            keys: ['バグか仕様かに関わらず品質に問題がある']
+          - name: 'bug:needs-triage'
+            keys: ['要検討']
+
+      # 再現性・再現難易度
+      - id: [repro]
+        label:
+          - name: 'repro:easy'
+            keys: ['再現性あり（常時発生しているか容易に再現可能）']
+          - name: 'repro:moderate'
+            keys: ['再現性あり（多少の手間で再現できる）']
+          - name: 'repro:hard'
+            keys: ['再現性あり（再現は可能だが困難を伴う）']
+          - name: 'repro:impossible'
+            keys: ['再現性なし（検証したが再現できなかった）']
+          - name: 'repro:unknown'
+            keys: ['不明・要検証']
+
+      # カテゴリー
+      - id: [category]
+        label:
+          - name: 'category:UI'
+            keys: ['UI']
+          - name: 'category:設定'
+            keys: ['設定']
+          - name: 'category:操作'
+            keys: ['操作']
+          - name: 'category:グラフィック'
+            keys: ['グラフィック']
+          - name: 'category:地形'
+            keys: ['地形']
+          - name: 'category:サウンド'
+            keys: ['サウンド']
+          - name: 'category:装備'
+            keys: ['装備']
+          - name: 'category:スキル'
+            keys: ['スキル']
+          - name: 'category:アイテム'
+            keys: ['アイテム']
+          - name: 'category:ハンター'
+            keys: ['ハンター']
+          - name: 'category:オトモ'
+            keys: ['オトモ']
+          - name: 'category:サポハン'
+            keys: ['サポハン']
+          - name: 'category:セクレト'
+            keys: ['セクレト']
+          - name: 'category:NPC'
+            keys: ['NPC']
+          - name: 'category:クエスト'
+            keys: ['クエスト']
+          - name: 'category:ロビー'
+            keys: ['ロビー']
+          - name: 'category:ネットワーク'
+            keys: ['ネットワーク']
+          - name: 'category:大型モンスター'
+            keys: ['大型モンスター']
+          - name: 'category:小型モンスター'
+            keys: ['小型モンスター']
+          - name: 'category:環境生物'
+            keys: ['環境生物']
+          - name: 'category:採集'
+            keys: ['採集']
+          - name: 'category:釣り'
+            keys: ['釣り']
+          - name: 'category:簡易キャンプ'
+            keys: ['簡易キャンプ']
+          - name: 'category:タルコロ'
+            keys: ['タルコロ']
+          - name: 'category:キャラクリ'
+            keys: ['キャラクタークリエイト・身だしなみ']
+          - name: 'category:その他'
+            keys: ['その他']
+
+      # マップ
+      - id: [map]
+        label:
+        - name: 'map:スージャ'
+          keys: ['スージャ']
+        - name: 'map:トレーニングエリア'
+          keys: ['トレーニングエリア']
+        - name: 'map:大集会所'
+          keys: ['大集会所']
+        - name: 'map:氷霧の断崖'
+          keys: ['氷霧の断崖']
+        - name: 'map:油涌き谷'
+          keys: ['油涌き谷']
+        - name: 'map:竜谷の跡地'
+          keys: ['竜谷の跡地']
+        - name: 'map:竜都の跡形'
+          keys: ['竜都の跡形']
+        - name: 'map:緋の森'
+          keys: ['緋の森']
+        - name: 'map:隔ての砂漠'
+          keys: ['隔ての砂漠']
+        - name: 'map:龍灯の社'
+          keys: ['龍灯の社']
+
+      # 大型モンスター
+      - id: [monster]
+        label:
+        - name: 'monster:護竜アルシュベルド'
+          keys: ['護竜アルシュベルド']
+        - name: 'monster:護竜アンジャナフ亜種'
+          keys: ['護竜アンジャナフ亜種']
+        - name: 'monster:護竜オドガロン亜種'
+          keys: ['護竜オドガロン亜種']
+        - name: 'monster:護竜ドシャグマ'
+          keys: ['護竜ドシャグマ']
+        - name: 'monster:護竜リオレウス'
+          keys: ['護竜リオレウス']
+        - name: 'monster:アジャラカン'
+          keys: ['アジャラカン']
+        - name: 'monster:アルシュベルド'
+          keys: ['アルシュベルド']
+        - name: 'monster:イャンクック'
+          keys: ['イャンクック']
+        - name: 'monster:ウズ・トゥナ'
+          keys: ['ウズ・トゥナ']
+        - name: 'monster:グラビモス'
+          keys: ['グラビモス']
+        - name: 'monster:ケマトリス'
+          keys: ['ケマトリス']
+        - name: 'monster:ゲリョス'
+          keys: ['ゲリョス']
+        - name: 'monster:ゴア・マガラ'
+          keys: ['ゴア・マガラ']
+        - name: 'monster:シーウー'
+          keys: ['シーウー']
+        - name: 'monster:ジン・ダハド'
+          keys: ['ジン・ダハド']
+        - name: 'monster:ゾ・シア'
+          keys: ['ゾ・シア']
+        - name: 'monster:タマミツネ'
+          keys: ['タマミツネ']
+        - name: 'monster:チャタカブラ'
+          keys: ['チャタカブラ']
+        - name: 'monster:ドシャグマ'
+          keys: ['ドシャグマ']
+        - name: 'monster:ドドブランゴ'
+          keys: ['ドドブランゴ']
+        - name: 'monster:ヌ・エグドラ'
+          keys: ['ヌ・エグドラ']
+        - name: 'monster:ネルスキュラ'
+          keys: ['ネルスキュラ']
+        - name: 'monster:ババコンガ'
+          keys: ['ババコンガ']
+        - name: 'monster:バーラハーラ'
+          keys: ['バーラハーラ']
+        - name: 'monster:ヒラバミ'
+          keys: ['ヒラバミ']
+        - name: 'monster:ププロポル'
+          keys: ['ププロポル']
+        - name: 'monster:ラバラ・バリナ'
+          keys: ['ラバラ・バリナ']
+        - name: 'monster:リオレイア'
+          keys: ['リオレイア']
+        - name: 'monster:リオレウス'
+          keys: ['リオレウス']
+        - name: 'monster:レ・ダウ'
+          keys: ['レ・ダウ']
+
+      # 装備種別
+      - id: [equipment]
+        label:
+          - name: 'equip:武器'
+            keys: ['武器']
+          - name: 'equip:防具'
+            keys: ['防具']
+          - name: 'equip:装衣'
+            keys: ['装衣']
+          - name: 'equip:装飾品'
+            keys: ['装飾品']
+          - name: 'equip:護石'
+            keys: ['護石']
+          - name: 'equip:スリンガー'
+            keys: ['スリンガー']
+
+      # 武器種
+      - id: [weapon]
+        labels:
+          - name: 'weapon:ガンランス'
+            keys: ['ガンランス']
+          - name: 'weapon:スラッシュアックス'
+            keys: ['スラッシュアックス']
+          - name: 'weapon:チャージアックス'
+            keys: ['チャージアックス']
+          - name: 'weapon:ハンマー'
+            keys: ['ハンマー']
+          - name: 'weapon:ヘビィボウガン'
+            keys: ['ヘビィボウガン']
+          - name: 'weapon:ライトボウガン'
+            keys: ['ライトボウガン']
+          - name: 'weapon:ランス'
+            keys: ['ランス']
+          - name: 'weapon:双剣'
+            keys: ['双剣']
+          - name: 'weapon:大剣'
+            keys: ['大剣']
+          - name: 'weapon:太刀'
+            keys: ['太刀']
+          - name: 'weapon:弓'
+            keys: ['弓']
+          - name: 'weapon:操虫棍'
+            keys: ['操虫棍']
+          - name: 'weapon:片手剣'
+            keys: ['片手剣']
+          - name: 'weapon:狩猟笛'
+            keys: ['狩猟笛']

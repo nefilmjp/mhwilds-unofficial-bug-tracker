@@ -1,0 +1,64 @@
+name: Issue labeler
+on:
+  issues:
+    types: [ opened ]
+
+permissions:
+  contents: read
+
+jobs:
+  label-component:
+    runs-on: ubuntu-latest
+
+    permissions:
+      issues: write
+      actions: read
+      contents: read
+
+    strategy:
+      matrix:
+        template: [ bug-report.yml ]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Parse issue form
+        uses: stefanbuck/github-issue-parser@v3
+        id: issue-parser
+        with:
+          template-path: .github/ISSUE_TEMPLATE/${{ matrix.template }}
+
+      - name: Set labels based on component field
+        uses: redhat-plumbers-in-action/advanced-issue-labeler@v2
+        with:
+          issue-form: ${{ steps.issue-parser.outputs.jsonString }}
+          template: ${{ matrix.template }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Remove fields
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const issue = context.payload.issue;
+            let body = issue.body;
+
+            // 空の任意項目を削除
+            const emptyOptionalPattern = /### .*[\s\n]*(_No response_|None)\s*\n\s*\n/g;
+            body = body.replace(emptyOptionalPattern, '');
+
+            // ラベルに変換される項目を削除
+            const emptyLabelPattern = /### (プラットフォーム|問題の分類|再現性|カテゴリー|マップ|大型モンスター|装備種別|武器種)[\s\n]*.*\s*\n\s*\n/g;
+            body = body.replace(emptyLabelPattern, '');
+
+            // チェックリストを削除
+            const emptyChecklistPattern = /### チェックリスト[\s\n]*(.|\s|\n)*/g;
+            body = body.replace(emptyChecklistPattern, '');
+
+            // issue更新
+            await github.rest.issues.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issue.number,
+              body: body
+            });
