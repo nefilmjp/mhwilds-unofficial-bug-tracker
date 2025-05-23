@@ -39,7 +39,7 @@ policy:
           - name: 'repro:impossible'
             keys: ['再現性なし（検証したが再現できなかった）']
           - name: 'repro:unknown'
-            keys: ['不明・要検証']
+            keys: ['再現性不明（要検証）']
 
       # カテゴリー
       - id: [category]
