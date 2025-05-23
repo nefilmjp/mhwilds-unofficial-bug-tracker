@@ -48,7 +48,7 @@ jobs:
             body = body.replace(emptyOptionalPattern, '');
 
             // ラベルに変換される項目を削除
-            const emptyLabelPattern = /### (プラットフォーム|問題の分類|再現性|カテゴリー|マップ|大型モンスター|装備種別|武器種)[\s\n]*.*\s*\n\s*\n/g;
+            const emptyLabelPattern = /### (プラットフォーム|分類|再現性・再現難易度|カテゴリー|マップ|大型モンスター|装備種別|武器種)[\s\n]*.*\s*\n\s*\n/g;
             body = body.replace(emptyLabelPattern, '');
 
             // チェックリストを削除
